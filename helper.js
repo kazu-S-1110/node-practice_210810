@@ -9,7 +9,8 @@ const person = {
 
 const read = () => {
   fs.readFile('./sample.json', 'utf8', (err, data) => {
-    console.log(data);
+    const person = JSON.parse(data); //jsonファイルにあるのはテキストなのでJsonとして汲み出す必要あり。
+    console.log(person.name);
   });
 };
 const write = () => {
