@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
-app.get('/', (req, res) => {
-  res.send("<h1>Hello World, I comin' new World!</h1>"); //htmlを返すことが可能
-});
+app.use(express.static(path.join(__dirname, 'public'))); //public内のページを読み込んでくれる。
+
+// app.get('/', (req, res) => {
+//   console.log(req); //reqを見ることが可能、めっちゃ情報が多い！
+//   res.send(); //htmlを返すことが可能
+// });
 
 app.get('/api/v1/user', (req, res) => {
   res.send({
