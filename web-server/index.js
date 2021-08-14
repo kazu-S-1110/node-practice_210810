@@ -12,7 +12,9 @@ app.use(express.urlencoded({ extended: false })); //これでreqのbodyを取得
 app.post('/api/v1/quiz', (req, res) => {
   const ans = req.body.answer; //formのnameから取得が可能
   console.log(ans);
-  res.send(ans);
+  if (ans === 'test') {
+    res.redirect('/test.html');
+  }
 });
 
 app.get('/api/v1/user', (req, res) => {
